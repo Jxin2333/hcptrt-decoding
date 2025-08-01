@@ -5,7 +5,7 @@ import glob
 import os
 import sys
 import nilearn.datasets
-from load_confounds import Params9, Params24
+# from load_confounds import Params9, Params24  # 已弃用的混淆变量处理方法
 from nilearn.maskers import NiftiLabelsMasker, NiftiMasker, NiftiMapsMasker
 from nilearn.interfaces.fmriprep import load_confounds_strategy
 from sklearn import preprocessing
