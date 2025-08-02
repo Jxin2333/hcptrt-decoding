@@ -3,6 +3,9 @@ import glob
 import pandas as pd
 from nilearn.input_data import NiftiLabelsMasker
 import numpy as np
+import platform
+
+
 
 def confound_load_9param(dpath):
     """
@@ -65,7 +68,7 @@ def load_fmri_data(subject, modality, img, base_path='/Users/zhangyexin/Document
     
     return final_bold_files
 
-def load_labels_data(modality, img, base_path='/Users/zhangyexin/Documents/hcptrt-output/fMRI/'):
+def load_labels_data(modality, img):
     """
     读取保存的标签数据文件
     
@@ -78,6 +81,12 @@ def load_labels_data(modality, img, base_path='/Users/zhangyexin/Documents/hcptr
     final_volume_labels: 加载的标签数据DataFrame
     """
     # 构建文件路径
+    os_name = platform.system()
+
+    if os_name == 'Windows':
+        base_path='C:/Users/Administrator/Desktop/fMRI/'
+    else:
+        base_path='/Users/zhangyexin/Documents/hcptrt-output/fMRI/'
     out_path = base_path + img + '/' + modality + '/'
     labels_path = out_path + modality + '_final_labels.csv'
     
